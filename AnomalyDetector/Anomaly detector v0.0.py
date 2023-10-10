@@ -335,3 +335,4 @@ for r in range(len(controlchangesT)):
 # P,I,setpointcv,timeint,deltaT,startvalue,Tdsystem,initialpv
 
 plt.plot(timearray,setptsimlist[-2])
+plt.show()
