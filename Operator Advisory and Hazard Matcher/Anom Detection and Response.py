@@ -8,8 +8,9 @@ import matplotlib.pyplot as plt
 import math
 import copy
 
-# Name - Name, Reading - Numerical Value, State- 0 to 3, Anomstate - 0 to 3, Alarms - levels - UNUSED PRESENTLY
-class transmitter:
+# Name - Name, Reading - Numerical Value, State- 0 to 3, Anomstate - 0 to 3, Alarms - levels 
+#Class transmitter not being used currently
+class transmitter: 
     def __init__(name, trans, reading, state, anomstate, alarms):
         name.trans = trans
         name.reading = reading
@@ -17,6 +18,7 @@ class transmitter:
         name.anomstate = anomstate
         name.alarms = alarms
 
+#Predicts if there is an error based on inputs?
 def predicted_val(yvalueind,xvalueind, regressions, xval):
     output = 0
     for i in range(len(regressions)):
@@ -24,13 +26,18 @@ def predicted_val(yvalueind,xvalueind, regressions, xval):
             output = regressions[i][2] * ((float(xval)) ** 3) + regressions[i][3] * ((float(xval)) ** 2) + regressions[i][4] * (float(xval)) + regressions[i][5]
     return output
 
-# Load Logs and Regressions # 
+# Load Logs and Regressions 
+# Loads Alarm Files
 alarms = pd.read_excel('Alarm List.xlsx')
 alarmlist = alarms.to_numpy()
+
+#Loads Raw data files
 dataset = pd.read_excel('Data Test 6.xlsx')
 data = dataset.to_numpy()
 col = int(data.size/len(data))
 print(str(data[1,0:5]))
+
+Loads regressions files
 reg = pd.read_excel('Regressions.xlsx')
 regressions = reg.to_numpy()
 totalregs = len(regressions)
@@ -63,6 +70,7 @@ for p in range(len(errorstates)):
     errortrans.append(trans)
     errorconds.append(conds)
 
+# -----------Classifies Raw data into num letter format------------------------------------------
 # Load data
 transtimetrace = {}
 transtimeerrors = {}
@@ -110,6 +118,8 @@ times = list(transtimetrace.keys())
 print(transtimetrace["09-11-2023 10:39:30"])
 print(transtimeerrors["09-11-2023 10:39:30"])
 print(errortranstime["09-11-2023 10:39:30"])
+#----------end of classification-------------------------------------------------------------------------
+
 
 # Error state identification
 
