@@ -7,6 +7,11 @@ import scipy.integrate as integrate
 import matplotlib.pyplot as plt
 import math
 import copy
+import os
+
+def path_read_excel(file_name):
+    pathed_file_name = str(os.getcwd() + "/Operator Advisory and Hazard Matcher/Raw Data/" + file_name)
+    return pd.read_excel(pathed_file_name)
 
 # Name - Name, Reading - Numerical Value, State- 0 to 3, Anomstate - 0 to 3, Alarms - levels - UNUSED PRESENTLY
 class transmitter:
@@ -25,13 +30,13 @@ def predicted_val(yvalueind,xvalueind, regressions, xval):
     return output
 
 # Load Logs and Regressions # 
-alarms = pd.read_excel('Alarm List.xlsx')
+alarms = path_read_excel('Alarm List.xlsx')
 alarmlist = alarms.to_numpy()
-dataset = pd.read_excel('Data Test 6.xlsx')
+dataset = path_read_excel('Data Test 6.xlsx')
 data = dataset.to_numpy()
 col = int(data.size/len(data))
 print(str(data[1,0:5]))
-reg = pd.read_excel('Regressions.xlsx')
+reg = path_read_excel('Regressions.xlsx')
 regressions = reg.to_numpy()
 totalregs = len(regressions)
 
@@ -51,7 +56,7 @@ print(len(transmitters))
 # Error state identification
 
 # Load error states
-errorlist = pd.read_excel("Node 8a2 C and E diagram.xlsx")
+errorlist = path_read_excel("Node 8a2 C and E diagram.xlsx")
 errorstates = errorlist.to_numpy()
 print(errorstates[1])
 
@@ -114,7 +119,7 @@ print(errortranstime["09-11-2023 10:39:30"])
 # Error state identification
 
 # Load error states
-errorlist = pd.read_excel("Node 8a2 C and E diagram.xlsx")
+errorlist = pd.path_read_excel("Node 8a2 C and E diagram.xlsx")
 errorstates = errorlist.to_numpy()
 
 errortrans = []
