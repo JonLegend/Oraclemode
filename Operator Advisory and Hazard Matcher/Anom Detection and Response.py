@@ -9,9 +9,10 @@ import math
 import copy
 import os
 
-def path_read_excel(file_name):
+def path_read_excel(file_name): #New Excel reading function
     pathed_file_name = str(os.getcwd() + "/Operator Advisory and Hazard Matcher/Raw Data/" + file_name)
     return pd.read_excel(pathed_file_name)
+    # I want to evenually update all the files to CSV
 
 # Name - Name, Reading - Numerical Value, State- 0 to 3, Anomstate - 0 to 3, Alarms - levels - UNUSED PRESENTLY
 class transmitter:
