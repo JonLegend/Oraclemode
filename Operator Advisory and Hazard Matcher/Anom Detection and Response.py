@@ -8,11 +8,7 @@ import matplotlib.pyplot as plt
 import math
 import copy
 import os
-
-def path_read_excel(file_name): #New Excel reading function
-    pathed_file_name = str(os.getcwd() + "/Operator Advisory and Hazard Matcher/Raw Data/" + file_name)
-    return pd.read_excel(pathed_file_name)
-    # I want to evenually update all the files to CSV
+import file_read as fr
 
 # Name - Name, Reading - Numerical Value, State- 0 to 3, Anomstate - 0 to 3, Alarms - levels - UNUSED PRESENTLY
 class transmitter:
@@ -34,11 +30,13 @@ def predicted_val(y_value_ind,x_value_ind, regressions, xval):
     return output
 
 # Load Logs and Regressions # 
-alarm_list = path_read_excel('Alarm List.xlsx').to_numpy()
-data = path_read_excel('Data Test 6.xlsx').to_numpy()
+alarm_list = fr.path_read_excel('Raw Data/Alarm List.xlsx').to_numpy()
+
+data = fr.path_read_excel('Raw Data/Data Test 6.xlsx').to_numpy()
 col = int(data.size/len(data))
 print(str(data[1,0:5]))
-regressions = path_read_excel('Regressions.xlsx').to_numpy()
+
+regressions = fr.path_read_excel('Raw Data/Regressions.xlsx').to_numpy()
 total_regresssions = len(regressions)
 
 # Initialise transmitters
@@ -57,7 +55,7 @@ print(len(transmitters))
 # Error state identification
 
 # Load error states
-error_states = path_read_excel("Node 8a2 C and E diagram.xlsx").to_numpy()
+error_states = fr.path_read_excel("Raw Data/Node 8a2 C and E diagram.xlsx").to_numpy()
 print(error_states[1])
 
 error_transmitter = []
@@ -121,7 +119,7 @@ print(error_transmitter_time["09-11-2023 10:39:30"])
 # Error state identification
 
 # Load error states
-error_list = path_read_excel("Node 8a2 C and E diagram.xlsx")
+error_list = fr.path_read_excel("Raw Data/Node 8a2 C and E diagram.xlsx")
 error_states = error_list.to_numpy()
 
 error_trans = []
