@@ -1,0 +1,18 @@
+,,,,,
+Cause S/N,Transmitters,Error code(s),Causes,Remedy actions,Time to consequence
+1,"FT103, FT104, PT102, PT103, PT104, PDT105, LT101","0B,0C",Signal fault,"Check TT213, TT210, TT104 <50°C and PT103, PT104, PT115a, PT115b < 6 bar, if not anomalous. 
+Send operator into plant to check indicator and surrounding indicators.
+ If there is congruence between reading in control room and indicator on plant, take down signal protocol for the faulty transmitter. 
+Call electrician. If there is no congruence between reading in control room and indicator on plant",10 seconds
+2,"PT104, FT103, FT104","2B,1C,1C",Blockage in Z102 OR Blocked Line Downstream of SOV125,"Switch J100 control mode to manual and decrease J100 pump speed to 5%. Simultaneously monitor PT104. If it continues to spike, cut J100. 
+Open V120. Then close V117a and V117b. 
+Check SOV125, V402 and V403 are open
+Monitor PT104. If PT104 is <2 bar, increase J100 speed sequentially in 5% steps to return to steady state operation",20 seconds
+3,PDT105,"2B, 3A",Blockage/Slight Fouling in Z102,"Switch J100 control mode to manual and decrease J100 pump speed to 5%. Simultaneously monitor PT104. If it continues to spike, cut J100. Open V120. Then close V117a and V117b. Check SOV125, V402 and V403 are open. Monitor PT104. If PT104 is <2 bar, increase J100 speed sequentially in 5% steps to return to steady state operation",1-2 minutes
+4,"FT103, FT104, PT104, PDT105","0C, 0C, 2B, 2B",Blocked line between V116 and SOV125,"Switch J100 control mode to manual and decrease J100 pump speed to 5%. Simultaneously monitor PT104. If it continues to spike, cut J100. Check V116, V117a, V117b, V121 are open",10-20 seconds
+5,"PT103, PT104, FT103, FT104","2B,1A/1B/1C, 0C, 0C",Blocked line before V116,"Switch J100 control mode to manual and decrease J100 pump speed to 5%. Simultaneously monitor PT104. If it continues to spike, cut J100. Check V112, V113a, V113b are open",10-20 seconds
+6,LT101,1C/3C,Misdirected flow downstream of FT104,"Check SOV123, V119a, V119b, V198a, V198b, V124, V315 and all stripper sample valves are closed and not visibly damaged. Check plant for visible MEA leakage",3-4 minutes
+7,"LT101, FT103, FT104","1C/3C, 0C/1C,0C/1C",Misdirected flow upstream of FT104,"Check V109, V111, V168, V115, V118, V122, V153, V154, NRV106, RV101, V107 and V108 and all stripper sample valves are closed and not visibly damaged. Check plant for visible MEA leakage",3-4 minutes
+8,"FT103, FT104","1C,1C",Leak upstream of FT104,Check line for visible leaks. Attempt to locate the leak Refer to leak SOP.,3-4 minutes
+9,"PT104, FT103, FT104","3C,0C/3C,0C/3C",J100 Pump Malfunction (loss of power),"Shift J100 to manual control mode and decrease J100 speed in 5% steps down to zero. Check TT106 for pump overheat, and inspect J100 for damages",40-50 seconds
+10,"PT104, FT103, FT104","2B/3B,2B/3B,2B/3B",J100 Pump Controller Malfunction (extreme oscillation),"Shift J100 to manual control mode and decrease J100 speed in 5% steps down. Monitor PT104, FT103, FT104 for continued anomalies. Adjust control parameters as required",40-50 seconds
